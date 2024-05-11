@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://c52t6xphrfudu"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_6o1ei"]
+[ext_resource type="Texture2D" uid="uid://bki7r3mv3j4bi" path="res://Assets/Basic Asset Pack/Basic Humanoid Animations/halfling rogue/HalflingRogue.png" id="2_0gltx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w4123"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_strui"]
+atlas = ExtResource("2_0gltx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnvjt"]
+atlas = ExtResource("2_0gltx")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_080p3"]
+atlas = ExtResource("2_0gltx")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gsb0"]
+atlas = ExtResource("2_0gltx")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g8m0l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_strui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnvjt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_080p3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gsb0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_6o1ei")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_w4123")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_g8m0l")
