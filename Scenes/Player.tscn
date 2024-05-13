@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://gswmkglgdpo0" path="res://Assets/Tiny RPG Character Asset Pack v1.02 -Free Soldier&Orc/Soldier/Soldier/Soldier-Walk.png" id="6_mrr18"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w4123"]
+radius = 7.0
+height = 18.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xtdko"]
 atlas = ExtResource("2_f4ke6")
@@ -237,10 +239,14 @@ animations = [{
 script = ExtResource("1_6o1ei")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_w4123")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 2)
 sprite_frames = SubResource("SpriteFrames_dvj4n")
 animation = &"death"
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
