@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var animation_sprite = $AnimatedSprite2D
 
 # Velocidad de movimiento del jugador
-@export var speed = 50
+var speed = 50
 var new_direction = 0
 var animation = 0
 var is_attacking = false
@@ -15,7 +15,7 @@ func _physics_process(delta):
 	direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	direction.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	
-	# Si el input es digital, se normaliza para movimientos diagonales
+	# Se normaliza para movimientos diagonales
 	if abs(direction.x) == 1 and abs(direction.y) == 1:
 		direction = direction.normalized()
 		
@@ -28,7 +28,6 @@ func _physics_process(delta):
 	var movement = speed * direction * delta
 	
 	if is_attacking == false:
-		# Se mueve el personaje y cuando choca con objetos que tengan colision también colisiona
 		move_and_collide(movement)
 		# Ejecutar animaciones
 		player_animations(direction)

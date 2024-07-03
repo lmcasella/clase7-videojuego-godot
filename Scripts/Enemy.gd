@@ -2,7 +2,7 @@
 extends CharacterBody2D
 
 # Velocidad de movimiento del enemigo
-@export var speed = 50
+var speed = 50
 # Dirección a la que se mueve el enemigo
 var direction: Vector2
 # Dirección y animación que se va a actualizar a lo largo del estado del juego
